@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MIT LICENSE 
  * Copyright (c) 2014 Gabriela D'Ávila, http://davila.blog.br
@@ -28,95 +29,194 @@
  * @copyright   Copyright (c) 2014 Gabriela D'Ávila (http://davila.blog.br)
  * @license     http://opensource.org/licenses/MIT  MIT License
  */
-
 class Davila_Nfe4web_Model_Resource_Eav_Mysql4_Setup extends Mage_Eav_Model_Entity_Setup {
-	private $entities = array(
-							'orig' => array(
-								'group'							=> 'NFE4WEB',
-								'type'							=> 'int', 
-								'label' 						=> 'Origem', 
-								'input' 						=> 'select',
-								'backend' 						=> 'eav/entity_attribute_backend_array',
-								'frontend'						=> '', 
-								'default'						=> 0,
-								'source'						=> 'nfe4web/fields_origin',
-								'global'						=> Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
-								'visible'						=> true,
-								'required'						=> true,
-								'user_defined'					=> false,
-								'searchable'					=> false,
-								'filterable'					=> false,
-								'comparable'					=> false,
-								'visible_on_front'				=> false,
-								'visible_in_advanced_search'	=> false,
-								'unique'						=> false
-								),
-							'ncm' => array(
-								'group'							=> 'NFE4WEB',
-								'type'							=> 'varchar', 
-								'label' 						=> 'NCM', 
-								'input' 						=> 'text',
-								'class'							=> 'validate-length minimum-length-2 maximum-length-8 validate-alphanum',
-								'backend' 						=> '',
-								'frontend'						=> '',
-								'default'						=> '',
-								'global'						=> Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
-								'visible'						=> true,
-								'required'						=> true,
-								'user_defined'					=> false,
-								'searchable'					=> false,
-								'filterable'					=> false,
-								'comparable'					=> false,
-								'visible_on_front'				=> false,
-								'visible_in_advanced_search'	=> false,
-								'unique'						=> false
-								),
-							'ucom' => array(
-								'group'							=> 'NFE4WEB',
-								'type'							=> 'varchar', 
-								'label' 						=> 'Unidade de Venda', 
-								'input' 						=> 'select',
-								'backend' 						=> 'eav/entity_attribute_backend_array',
-								'frontend'						=> '', 
-								'default'						=> 'un',
-								'source'						=> 'nfe4web/fields_unity',
-								'global'						=> Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
-								'visible'						=> true,
-								'required'						=> true,
-								'user_defined'					=> false,
-								'searchable'					=> false,
-								'filterable'					=> false,
-								'comparable'					=> false,
-								'visible_on_front'				=> false,
-								'visible_in_advanced_search'	=> false,
-								'unique'						=> false
-								),
-							'subst' => array(
-								'group'							=> 'NFE4WEB',
-								'type'							=> 'int', 
-								'label' 						=> 'Substituição Tributária', 
-								'input' 						=> 'select',
-								'backend' 						=> 'eav/entity_attribute_backend_array',
-								'frontend'						=> '', 
-								'default'						=> 0,
-								'source'						=> 'nfe4web/fields_subst',
-								'global'						=> Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
-								'visible'						=> true,
-								'required'						=> true,
-								'user_defined'					=> false,
-								'searchable'					=> false,
-								'filterable'					=> false,
-								'comparable'					=> false,
-								'visible_on_front'				=> false,
-								'visible_in_advanced_search'	=> false,
-								'unique'						=> false
-								),
-							);
 
+    private $entities = array(
+        'orig' => array(
+            'group' => 'NFE4WEB',
+            'type' => 'int',
+            'label' => 'Origem',
+            'input' => 'select',
+            'backend' => 'eav/entity_attribute_backend_array',
+            'frontend' => '',
+            'default' => 0,
+            'source' => 'nfe4web/fields_origin',
+            'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+            'visible' => true,
+            'required' => true,
+            'user_defined' => false,
+            'searchable' => false,
+            'filterable' => false,
+            'comparable' => false,
+            'visible_on_front' => false,
+            'visible_in_advanced_search' => false,
+            'unique' => false
+        ),
+        'ncm' => array(
+            'group' => 'NFE4WEB',
+            'type' => 'varchar',
+            'label' => 'NCM',
+            'input' => 'text',
+            'class' => 'validate-length minimum-length-2 maximum-length-8 validate-alphanum',
+            'backend' => '',
+            'frontend' => '',
+            'default' => '',
+            'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+            'visible' => true,
+            'required' => true,
+            'user_defined' => false,
+            'searchable' => false,
+            'filterable' => false,
+            'comparable' => false,
+            'visible_on_front' => false,
+            'visible_in_advanced_search' => false,
+            'unique' => false
+        ),
+        'ucom' => array(
+            'group' => 'NFE4WEB',
+            'type' => 'varchar',
+            'label' => 'Unidade de Venda',
+            'input' => 'select',
+            'backend' => 'eav/entity_attribute_backend_array',
+            'frontend' => '',
+            'default' => 'un',
+            'source' => 'nfe4web/fields_unity',
+            'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+            'visible' => true,
+            'required' => true,
+            'user_defined' => false,
+            'searchable' => false,
+            'filterable' => false,
+            'comparable' => false,
+            'visible_on_front' => false,
+            'visible_in_advanced_search' => false,
+            'unique' => false
+        ),
+        'subst' => array(
+            'group' => 'NFE4WEB',
+            'type' => 'int',
+            'label' => 'Substituição Tributária',
+            'input' => 'select',
+            'backend' => 'eav/entity_attribute_backend_array',
+            'frontend' => '',
+            'default' => 0,
+            'source' => 'nfe4web/fields_subst',
+            'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+            'visible' => true,
+            'required' => true,
+            'user_defined' => false,
+            'searchable' => false,
+            'filterable' => false,
+            'comparable' => false,
+            'visible_on_front' => false,
+            'visible_in_advanced_search' => false,
+            'unique' => false
+        ),
+    );
 
-	public function getDefaultEntities() {
-		foreach($this->entities as $key => $data) {
-        		parent::addAttribute('catalog_product', $key, $data);
+    public function getDefaultEntities() {
+        foreach ($this->entities as $key => $data) {
+            parent::addAttribute('catalog_product', $key, $data);
         }
-	}
+    }
+    
+    /**
+     * Alteração para funcionar no magento 1.8 substituir os 2 metodos pelos códigos abaixo.
+     * 
+     * private $entities = array(
+        'catalog_product' =>
+        array(
+            'entity_model'      => 'catalog/product',
+            'attribute_model'   => 'catalog/resource_eav_attribute',
+            'table'             => 'catalog/product',
+            'attributes' => array(
+                'orig' => array(
+                    'group' => 'NFE4WEB',
+                    'type' => 'int',
+                    'label' => 'Origem',
+                    'input' => 'select',
+                    'backend' => 'eav/entity_attribute_backend_array',
+                    'frontend' => '',
+                    'default' => 0,
+                    'source' => 'nfe4web/fields_origin',
+                    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+                    'visible' => true,
+                    'required' => true,
+                    'user_defined' => false,
+                    'searchable' => false,
+                    'filterable' => false,
+                    'comparable' => false,
+                    'visible_on_front' => false,
+                    'visible_in_advanced_search' => false,
+                    'unique' => false
+                ),
+                'ncm' => array(
+                    'group' => 'NFE4WEB',
+                    'type' => 'varchar',
+                    'label' => 'NCM',
+                    'input' => 'text',
+                    'class' => 'validate-length minimum-length-2 maximum-length-8 validate-alphanum',
+                    'backend' => '',
+                    'frontend' => '',
+                    'default' => '',
+                    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+                    'visible' => true,
+                    'required' => true,
+                    'user_defined' => false,
+                    'searchable' => false,
+                    'filterable' => false,
+                    'comparable' => false,
+                    'visible_on_front' => false,
+                    'visible_in_advanced_search' => false,
+                    'unique' => false
+                ),
+                'ucom' => array(
+                    'group' => 'NFE4WEB',
+                    'type' => 'varchar',
+                    'label' => 'Unidade de Venda',
+                    'input' => 'select',
+                    'backend' => 'eav/entity_attribute_backend_array',
+                    'frontend' => '',
+                    'default' => 'un',
+                    'source' => 'nfe4web/fields_unity',
+                    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+                    'visible' => true,
+                    'required' => true,
+                    'user_defined' => false,
+                    'searchable' => false,
+                    'filterable' => false,
+                    'comparable' => false,
+                    'visible_on_front' => false,
+                    'visible_in_advanced_search' => false,
+                    'unique' => false
+                ),
+                'subst' => array(
+                    'group' => 'NFE4WEB',
+                    'type' => 'int',
+                    'label' => 'Substituição Tributária',
+                    'input' => 'select',
+                    'backend' => 'eav/entity_attribute_backend_array',
+                    'frontend' => '',
+                    'default' => 0,
+                    'source' => 'nfe4web/fields_subst',
+                    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
+                    'visible' => true,
+                    'required' => true,
+                    'user_defined' => false,
+                    'searchable' => false,
+                    'filterable' => false,
+                    'comparable' => false,
+                    'visible_on_front' => false,
+                    'visible_in_advanced_search' => false,
+                    'unique' => false
+                ),
+            )
+        )
+    );
+
+    public function getDefaultEntities() {
+        return $this->entities;
+    }
+     */
+
 }
